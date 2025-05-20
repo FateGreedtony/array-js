@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Array</title>
+    </head>
+
+    <body>
+        <h1>Lihat file'e langsung ae</h1>
+
+        <script>
+            // Array merupakan sebuah object yang  element valuenya dipanggil menggunakan nomor
+            // Array memiliki bentuk yang sama dengan Object
+            let myArray = ["array1", "array2", "array3"] // Array dibuat dengan menggunakan tanda kurung siku []
+            // value Array bisa apa saja
+
+            // untuk memanggil array, kita menggunakan arrayName[arrayIndex], arrayIndex sendiri merupakan sebuah penomoran letak eksperi di array, contoh:
+            console.log("Array dengan index 0 memiliki value: " + myArray[0]); // penomoran array dimulai dengan 0
+
+            // untuk menambahkan array, kita menggunakan array.push(newElementValue), contoh
+            myArray.push(29); // ketika menggunakan array push, maka valuenya akan ditaruh di paling belakang
+            console.log("Array dengan index 30 memiliki value: " + myArray[3])
+            // selain menggunakan [] untuk mengakses nilai dalam suatu index, kita bisa menggunakan method .at(indexValue), contoh:
+            console.log(myArray.at(1))
+
+            // untuk memanggil nilai semua array, gunakan nama array, contoh:
+            console.log("myArray memiliki value berupa " + myArray)
+
+
+
+            // untuk mengetahui panjang array (banyaknya value), gunakan method length(), contoh
+            console.log("myArray, memiliki panjang: " + myArray.length)
+            // kita juga bisa menggunakan .length() untuk mengakses index yang berada di nilai akhir, contoh
+            console.log(myArray[myArray.length-1])
+
+            // untuk membuat semua array menjadi string, kita bisa menggunakan method .join(pemisahAntarArray)
+            console.log("String dari myArray adalah: " + myArray.join(", "))
+
+            // untuk menghapus element pada array, kita bisa menggunakan method .pop() untuk menghapus element terakhir, atau .shift untuk menghapus element pertama
+            // penggunaan pop method =>
+            console.log("Array Full: " + myArray + "\n" + "array yang element terakhirnya dihapus: " +
+             myArray.pop() + '\n' +
+             "hasilnya adalah: " + myArray) 
+            // penggunaan shift method => 
+            console.log("Array Full: " + myArray + "\n" + "array yang element pertamanya dihapus: " +
+             myArray.shift() + '\n' +
+             "hasilnya adalah: " + myArray)
+
+            // untuk menambahkan element baru tetapi pada bagian awal array, kita bisa menggunakan method .unshift(newElementValue), contoh
+            console.log("value sekarang: " + myArray + '\n' +
+             "total jumlah value baru: " + myArray.unshift("array1") + '\n' +
+             "value yang sekarang: " + myArray)
+
+            // untuk ganti element tinggal gunain arrayName[arrayIndex] = new value
+            console.log("before: " + myArray)
+            myArray[0] = "newArray1"
+            console.log("after: " + myArray)
+        </script>
+    </body>
+</html>
