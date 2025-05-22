@@ -62,6 +62,23 @@
             console.log('Array waifu milik ku berisikan: ' + waifu + '\n \n' + 'Bila aku ingin menghapus salah satu waifuku, aku bisa menggunakan operator delete');
             delete waifu[3];
             console.log('Aku menghapus Barbatos di index 3, sekarang waifu ku adalah: ' + waifu) // dengan menggunakan delete, kita bisa menghapus value dari element index, tetapi element tersebut masih ada, dengan kata lain kita hanya mengganti value element terkait menjadi empty, atau undefined, untuk menghapus seutuhnya, gunakan method .pop() atau .shift()
+
+            // untuk menggabungkan 2 array atau lebih, kita menggunakan method .concat(arrayYangInginDiGabungkan)
+            let gameFavorit = ['HSR', 'Limbus Company', 'Rune Factory', 'Blue Archive', 'Arknight', 'Cytus'];
+            let dislikeGame = ['Fate Grand Order', 'Among Us', 'PvZ 2'];
+
+            let gameYangPernahAkuMainkan = gameFavorit.concat(dislikeGame);
+            console.log('game favorit: ' + gameFavorit + '\n' + 'game yang tak ku sukai: ' +  dislikeGame + '\n' + 'game yang pernah ku mainkan: ' + gameYangPernahAkuMainkan);
+            // ketika kita menggunakan method concat, maka nilai yang akan dikembalikan selalu menjadi array yang baru
+            // kita juga bisa menambahkan element baru pada array yang mau kita tambahkan di concat, contoh:
+            console.log(gameFavorit);
+            gameYangPernahAkuMainkan = gameFavorit.concat('Ender Magnolia'); // menggabungkan array gameFavorit kemudian menambahkan element baru berupa 'Ender Magnolia'
+            console.log(gameYangPernahAkuMainkan);
+
+            // untuk menyalin element, kita bisa menggunakan method .copyWithin(targetYangInginDitimpa, yangAkanDisalin, tempatPenimpaanBerakhir)
+            // .copyWithin() menyalin element index terkait dan seterusnya sampai element array yang terakhir, lalu ditempel ke index target secara berurutan dari index yang disalin, panjang index yang ditimpa adalah sampai index yang disalin selesai atau sampai index terakhir, jika elemen yang disalin lebih pendek dari ruang sisa, elemen lainnya tidak berubah
+            let myNewArray = ['newArray1', 'newArray2', 'newArray3', 'newArray4', 'newArray5', 'newArray6', 'newArray7', 'newArray8'];
+            console.log(myNewArray.copyWithin(0, 6));
         </script>
     </body>
 </html>
