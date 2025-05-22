@@ -15,21 +15,21 @@
             let myArray = ["array1", "array2", "array3"] // Array dibuat dengan menggunakan tanda kurung siku []
             // value Array bisa apa saja
 
-            // untuk memanggil array, kita menggunakan arrayName[arrayIndex], arrayIndex sendiri merupakan sebuah penomoran letak eksperi di array, contoh:
+            // untuk memanggil array, kita menggunakan arrayName[arrayIndex], arrayIndex sendiri merupakan sebuah penomoran letak element di array, contoh:
             console.log("Array dengan index 0 memiliki value: " + myArray[0]); // penomoran array dimulai dengan 0
 
             // untuk menambahkan array, kita menggunakan array.push(newElementValue), contoh
             myArray.push(29); // ketika menggunakan array push, maka valuenya akan ditaruh di paling belakang
-            console.log("Array dengan index 30 memiliki value: " + myArray[3])
+            console.log("Array dengan index 3, memiliki value: " + myArray[3])
             // selain menggunakan [] untuk mengakses nilai dalam suatu index, kita bisa menggunakan method .at(indexValue), contoh:
             console.log(myArray.at(1))
 
-            // untuk memanggil nilai semua array, gunakan nama array, contoh:
+            // untuk memanggil nilai semua array, gunakan nama array tanpa siku, atau method .at, contoh:
             console.log("myArray memiliki value berupa " + myArray)
 
 
 
-            // untuk mengetahui panjang array (banyaknya value), gunakan method length(), contoh
+            // untuk mengetahui panjang array (banyaknya element), gunakan method length(), contoh
             console.log("myArray, memiliki panjang: " + myArray.length)
             // kita juga bisa menggunakan .length() untuk mengakses index yang berada di nilai akhir, contoh
             console.log(myArray[myArray.length-1])
@@ -48,14 +48,20 @@
              "hasilnya adalah: " + myArray)
 
             // untuk menambahkan element baru tetapi pada bagian awal array, kita bisa menggunakan method .unshift(newElementValue), contoh
-            console.log("value sekarang: " + myArray + '\n' +
-             "total jumlah value baru: " + myArray.unshift("array1") + '\n' +
-             "value yang sekarang: " + myArray)
+            console.log("element sekarang: " + myArray + '\n' +
+             "total jumlah element baru: " + myArray.unshift("array1") + '\n' +
+             "element yang bari: " + myArray)
 
             // untuk ganti element tinggal gunain arrayName[arrayIndex] = new value
             console.log("before: " + myArray)
             myArray[0] = "newArray1"
             console.log("after: " + myArray)
+
+            // untuk menghapus value dari array element kita menggunakan operator delete, contoh penggunaan
+            let waifu = ['Mumei', 'Firefly', 'SAM', 'Barbatos', 'Wisadel', 'Kayoko'];
+            console.log('Array waifu milik ku berisikan: ' + waifu + '\n \n' + 'Bila aku ingin menghapus salah satu waifuku, aku bisa menggunakan operator delete');
+            delete waifu[3];
+            console.log('Aku menghapus Barbatos di index 3, sekarang waifu ku adalah: ' + waifu) // dengan menggunakan delete, kita bisa menghapus value dari element index, tetapi element tersebut masih ada, dengan kata lain kita hanya mengganti value element terkait menjadi empty, atau undefined, untuk menghapus seutuhnya, gunakan method .pop() atau .shift()
         </script>
     </body>
 </html>
