@@ -79,6 +79,13 @@
             // .copyWithin() menyalin element index terkait dan seterusnya sampai element array yang terakhir, lalu ditempel ke index target secara berurutan dari index yang disalin, panjang index yang ditimpa adalah sampai index yang disalin selesai atau sampai index terakhir, jika elemen yang disalin lebih pendek dari ruang sisa, elemen lainnya tidak berubah
             let myNewArray = ['newArray1', 'newArray2', 'newArray3', 'newArray4', 'newArray5', 'newArray6', 'newArray7', 'newArray8'];
             console.log(myNewArray.copyWithin(0, 6));
+
+            // untuk menjadikan nested array (array di dalam array) gunakan method .flat(dalamArray) default kedalaman array adalah 1
+            let namaKu = ['A ', [' Malik'], [' Fajar', [' Musyafa']]];
+            let namaLengkap = namaKu.flat();
+            console.log(namaLengkap); // output ['A ', ' Malik', ' Fajar', Array(1)], karena kedalaman array untuk Musyafa adalah 2, dia berada dalam array 'namaKu'(kedalaman = 0), kemudian berada dalam array bersama ' Fajar' (kedalaman 1), kemudian baru pada bagian Musyafa' dia berada dikedalam 2 
+            let namaLengkapFull = namaKu.flat(2);
+            console.log(namaLengkapFull);
         </script>
     </body>
 </html>
