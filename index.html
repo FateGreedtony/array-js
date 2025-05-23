@@ -86,6 +86,28 @@
             console.log(namaLengkap); // output ['A ', ' Malik', ' Fajar', Array(1)], karena kedalaman array untuk Musyafa adalah 2, dia berada dalam array 'namaKu'(kedalaman = 0), kemudian berada dalam array bersama ' Fajar' (kedalaman 1), kemudian baru pada bagian Musyafa' dia berada dikedalam 2 
             let namaLengkapFull = namaKu.flat(2);
             console.log(namaLengkapFull);
+
+            // untuk melakukan sorting secara alphabetical di Array JS kita bisa menggunakan method .sort()
+            console.log(waifu.sort());
+
+            // untuk membalik urutan array, kita menggunakan method .reverse()
+            console.log(waifu.reverse());
+
+            // untuk membuat array tersorting kemudian ditempatkan di array yang baru, kita menggunakan method ..toSorted()
+            let waifuUrut = waifu.toSorted();
+            console.log('Waifu sebelum urut ' + waifu); // gunain array yang waifunya masih ke reverse
+            console.log('Waifu setelah urut ' + waifuUrut); // gunain array baru yang waifunya udah urut sesuai abjad
+
+            // sama seperti .toSorted(), method .toReversed berfungsi untuk mengembalikkan array yang sudah di reverse ke array yang baru
+            let waifuNggakUrut = waifuUrut.toReversed();
+            console.log('waifu yang urut ' + waifuUrut);
+            console.log('waifu nggak urut ' + waifuNggakUrut)
+
+            // untuk mengurutkan array yang memiliki element number, kita menggunakan method sebelumnya dan ditambahkan sebuah fungsi untuk mengurutkannya secara numeric (pada aslinya sort tidak berkerja untuk numeric, hanya untuk string). Berikut fungsinya: .sort(function (a, b){return a - b})
+            let numberRandom = [2, 5, 10, 11, 1, 11111, 8, 9, 29, 99, 5,];
+            console.log(numberRandom.sort()); // output [1, 10, 11, 11111, 2, 29, 5, 5, 8, 9, 99] karena disortir menggunakan urutan angka didepannya '1'1111 lebih kecil dari '2'. Hal tersebut dilihat dari huruf depannya
+            console.log(numberRandom.sort(function(a, b){return a - b})); // dalam kode ini, setiap element array akan dimasukkan ke dalam function dan dicek satu persatu sampai element yang terakhir
+            
         </script>
     </body>
 </html>
