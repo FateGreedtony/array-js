@@ -49,8 +49,8 @@
 
             // untuk menambahkan element baru tetapi pada bagian awal array, kita bisa menggunakan method .unshift(newElementValue), contoh
             console.log("element sekarang: " + myArray + '\n' +
-             "total jumlah element baru: " + myArray.unshift("array1") + '\n' +
-             "element yang bari: " + myArray)
+             "total jumlah element baru: " + myArray.unshift("newArray1") + '\n' +
+             "element yang baru: " + myArray)
 
             // untuk ganti element tinggal gunain arrayName[arrayIndex] = new value
             console.log("before: " + myArray)
@@ -59,9 +59,10 @@
 
             // untuk menghapus value dari array element kita menggunakan operator delete, contoh penggunaan
             let waifu = ['Mumei', 'Firefly', 'SAM', 'Barbatos', 'Wisadel', 'Kayoko'];
-            console.log('Array waifu milik ku berisikan: ' + waifu + '\n \n' + 'Bila aku ingin menghapus salah satu waifuku, aku bisa menggunakan operator delete');
+            console.log('Array waifu milik ku berisikan: ' + waifu + '\n \n' 
+            + 'Bila aku ingin menghapus salah satu waifuku, aku bisa menggunakan operator delete');
             delete waifu[3];
-            console.log('Aku menghapus Barbatos di index 3, sekarang waifu ku adalah: ' + waifu) // dengan menggunakan delete, kita bisa menghapus value dari element index, tetapi element tersebut masih ada, dengan kata lain kita hanya mengganti value element terkait menjadi empty, atau undefined, untuk menghapus seutuhnya, gunakan method .pop() atau .shift()
+            console.log('Aku menghapus Barbatos di index 3, sekarang waifu ku adalah: ' + waifu.join(", ")) // dengan menggunakan delete, kita bisa menghapus value dari element index, tetapi element tersebut masih ada, dengan kata lain kita hanya mengganti value element terkait menjadi empty, atau undefined, untuk menghapus seutuhnya, gunakan method .pop() atau .shift()
 
             // untuk menggabungkan 2 array atau lebih, kita menggunakan method .concat(arrayYangInginDiGabungkan)
             let gameFavorit = ['HSR', 'Limbus Company', 'Rune Factory', 'Blue Archive', 'Arknight', 'Cytus'];
@@ -78,7 +79,7 @@
             // untuk menyalin element, kita bisa menggunakan method .copyWithin(targetYangInginDitimpa, yangAkanDisalin, tempatPenimpaanBerakhir)
             // .copyWithin() menyalin element index terkait dan seterusnya sampai element array yang terakhir, lalu ditempel ke index target secara berurutan dari index yang disalin, panjang index yang ditimpa adalah sampai index yang disalin selesai atau sampai index terakhir, jika elemen yang disalin lebih pendek dari ruang sisa, elemen lainnya tidak berubah
             let myNewArray = ['newArray1', 'newArray2', 'newArray3', 'newArray4', 'newArray5', 'newArray6', 'newArray7', 'newArray8'];
-            console.log(myNewArray.copyWithin(0, 6));
+            console.log(myNewArray.copyWithin(0, 2));
 
             // untuk menjadikan nested array (array di dalam array) gunakan method .flat(dalamArray) default kedalaman array adalah 1
             let namaKu = ['A ', [' Malik'], [' Fajar', [' Musyafa']]];
@@ -107,6 +108,64 @@
             let numberRandom = [2, 5, 10, 11, 1, 11111, 8, 9, 29, 99, 5,];
             console.log(numberRandom.sort()); // output [1, 10, 11, 11111, 2, 29, 5, 5, 8, 9, 99] karena disortir menggunakan urutan angka didepannya '1'1111 lebih kecil dari '2'. Hal tersebut dilihat dari huruf depannya
             console.log(numberRandom.sort(function(a, b){return a - b})); // dalam kode ini, setiap element array akan dimasukkan ke dalam function dan dicek satu persatu sampai element yang terakhir
+            
+            // dalam JS, bila kita ingin mengacak urutan array, kita akan menggabungkan method .sort() dan function
+            let waifuAcak = waifuUrut.sort(function(){return 0.5 - Math.random()})
+            console.log('versi urut: ' + waifuUrut);
+            console.log('versi urutan yang diacak: ' + waifuAcak);
+
+            // untuk mencari nilai max/tertinggi di array, kita dapat menemukannya menggunakan function yang dibuat sendiri: 
+            function maxArray(arr){
+                let len = arr.length;
+                let max = -Infinity;
+
+                while (len--){
+                    if(arr[len] > max){
+                        max = arr[len]
+                    }
+                }
+                return max;
+            }
+
+            // sedangkan untuk mencari nilai min/terkecil, kita menggunakan function berikut
+            function minArray(arr){
+                let len = arr.length;
+                let min = Infinity;
+
+                while (len--){
+                    if(arr[length] < Infinity){
+                        min = arr[len]
+                    }
+                }
+                return min;
+            }
+
+            // output dari keduannya
+            console.log('array yang kita gunakan adalah numberRandom: ' + numberRandom.sort(function(){return 0.5 - Math.random()}) + '\n' +
+            'yang memiliki nilai tertinggi: ' + maxArray(numberRandom) + '\n' +
+            'dan memiliki nilai terendah berupa: ' + minArray(numberRandom));
+
+            // untuk mengubah setiap element array, misalnya mengalikan semua element dari array menggunakan function, kita menggunakan method .map(myFunction) || .map() mengembalikan array baru
+            let number1 = [10, 20, 30, 40, 50];
+            let number2 = number1.map(kaliDua);
+            function kaliDua(value){
+                return value * 2;
+            }
+            console.log('array sebelum dikalikan: ' + number1);
+            console.log('array setelah dikalikan: ' + number2); // setiap element dari number1 dikali dua
+
+            // method .map sendiri merupakan method yang mengembalikan nilai baru, bila kita ingin memproses array tanpa mengembalikan nilai baru, kita menggunakan method .forEach()
+            number1.forEach((num) => {
+                console.log('Bila kita mengembalikan nilainya mengkalikan nilainya menggunakan method .forEach(): ' + (num * 2));
+            });
+
+            // untuk memfilter nilai tertentu dari suatu array, kita menggunakan method .filter(myFunction)
+            let numberOver50 = number2.filter(filterArray);
+            function filterArray(value){
+                return value > 50; // memfilter semua element yang lebih dari 50 dan dikembalikan ke array yang baru
+            }
+            console.log(numberOver50);
+
             
         </script>
     </body>
