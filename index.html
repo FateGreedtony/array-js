@@ -166,7 +166,44 @@
             }
             console.log(numberOver50);
 
-            
+            // untuk membuat semua nilai dari array berubah menjadi 1 elementtunggal, kita menggunakan method .reduce, yang berfungsi untuk menyatukan semua nilai array dari kiri ke kanan, dalam hal ini kita akan membuat nilai array menjadi 1 dengan dijumlahkan
+            let sumNumber = numberRandom.reduce((total, value) => {
+                return total + value;
+            })            
+            console.log('Number sebelum ditambahkan: ' + numberRandom + '\n' +
+                'Number setelah ditambahkan: ' + sumNumber
+            );
+
+            // bila kita mengurangkannya
+            let minusNumber = numberRandom.reduce((total, value) => {
+                return total - value;
+            })
+            console.log('Number sebelum ditambahkan: ' + numberRandom + '\n' +
+                'Number setelah dikurangkan: ' + minusNumber
+            );
+            // ada juga method .reduceRight(), pada dasarnya method ini sama seperti .reduce() bedanya method ini dimulai dari kanan ke kiri 
+
+            // untuk membuat sebuah string menjadi array, dengan element array adalah setiap karakter dari string tersebut, kita menggunakan method .from(string)
+            let stringToArray = Array.from("AMALIK");
+            console.log(stringToArray);
+
+            // pada ES2023, ada cara baru untuk mengubah array yang sudah ada dan dikembalikan ke array baru, yaitu dengan menggunakan method .with(indexArrayYangAkanDiUbah, newValue)
+            newWaifu = waifu.with(0, 'Raven');
+            console.log('waifu lama: ' + waifu + '\n' +
+                'waifu baru: ' + newWaifu
+            );
+
+            // untuk mengecek setiap apakah suatu element dari array memiliki nilai tertentu, kita menggunakan method .every
+            checkNumberOverFivety = numberRandom.every((num) => {
+                return num > 50;
+            })
+            checkNumberLessThanTwentyThousand = numberRandom.every((num) => {
+                return num < 20000;
+            })
+
+            console.log('Angka yang dicek valuenya lebih dari 50 semua: ' + numberRandom + '\n' + 
+                'Hasil: ' + checkNumberLessThanTwentyThousand
+            ) 
         </script>
     </body>
 </html>
